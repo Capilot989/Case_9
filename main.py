@@ -37,19 +37,19 @@ def get_color_choice() -> str:
         '6': '#9932CC',
         '7': '#00FFFF'
     }
-    print('RU.AVAILABLE_COLORS')
+    print(RU.AVAILABLE_COLORS)
     print(
-        f'1 - {RU.AQUAMARINE}, 2 - {RU.SKY_BLUE}, 3 - {RU.CADET_BLUE},
-        4 - {RU.CHARTREUSE},'5 - {RU.CORNFLOWERBLUE}, 6 - {RU.DARKORCHID},
-        7 - {RU.CYAN}'
+        f'1 - {RU.AQUAMARINE}, 2 - {RU.SKY_BLUE}, 3 - {RU.CADET_BLUE},'
+        f'4 - {RU.CHARTREUSE},5 - {RU.CORNFLOWERBLUE}, 6 - {RU.DARKORCHID},'
+        f'7 - {RU.CYAN}'
     )
 
     while True:
-        color = input('RU.ENTER_COLOR')
+        color = input(RU.ENTER_COLOR)
         if color in colors:
             return colors[color]
         else:
-            print('RU.RETRY_ENTER_COLOR')
+            print(RU.RETRY_ENTER_COLOR)
 
 
 def draw_hexagon(x, y, side_len, color) -> None:
@@ -82,9 +82,9 @@ def main() -> None:
     trt.speed(0)
     trt.hideturtle()
 
-    print('RU.ENTER_FIRST_COLOR')
+    print(RU.ENTER_FIRST_COLOR)
     color_1 = get_color_choice()
-    print('RU.ENTER_SECOND_COLOR')
+    print(RU.ENTER_SECOND_COLOR)
     color_2 = get_color_choice()
 
     num_hexagons = get_num_hexagons()
