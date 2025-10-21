@@ -1,4 +1,5 @@
 import turtle as trt
+import ru_local as RU
 import math
 
 
@@ -11,13 +12,13 @@ def get_num_hexagons() -> int:
     """
     while True:
         try:
-            data = int(input('Enter a number between 4 and 20: '))
+            data = int(input(RU.ENTER_NUMBER))
             if 4 <= data <= 20:
                 return data
             else:
-                print('Please enter a number between 4 and 20')
+                print(RU.RETRY_ENTER_NUMBER)
         except ValueError:
-            print('Please enter an integer')
+            print(RU.RETRY_ENTER_NUMBER)
 
 
 def get_color_choice() -> str:
@@ -36,16 +37,19 @@ def get_color_choice() -> str:
         '6': '#9932CC',
         '7': '#00FFFF'
     }
-    print('Available colors:')
-    print('1 - Aquamarine, 2 - SkyBlue, 3 - CadetBlue, 4 - Chartreuse, '
-          '5 - CornflowerBlue, 6 - DarkOrchid, 7 - Cyan')
+    print('RU.AVAILABLE_COLORS')
+    print(
+        f'1 - {RU.AQUAMARINE}, 2 - {RU.SKY_BLUE}, 3 - {RU.CADET_BLUE},
+        4 - {RU.CHARTREUSE},'5 - {RU.CORNFLOWERBLUE}, 6 - {RU.DARKORCHID},
+        7 - {RU.CYAN}'
+    )
 
     while True:
-        color = input('Enter a number of color: ')
+        color = input('RU.ENTER_COLOR')
         if color in colors:
             return colors[color]
         else:
-            print('Please enter a valid color')
+            print('RU.RETRY_ENTER_COLOR')
 
 
 def draw_hexagon(x, y, side_len, color) -> None:
@@ -78,9 +82,9 @@ def main() -> None:
     trt.speed(0)
     trt.hideturtle()
 
-    print('Enter first color:')
+    print('RU.ENTER_FIRST_COLOR')
     color_1 = get_color_choice()
-    print('Enter second color:')
+    print('RU.ENTER_SECOND_COLOR')
     color_2 = get_color_choice()
 
     num_hexagons = get_num_hexagons()
