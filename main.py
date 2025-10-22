@@ -76,28 +76,38 @@ def draw_hexagon(x, y, side_len, color) -> None:
 
 def main() -> None:
     """Main function to set up the turtle screen and draw the hexagon grid."""
-    screen = trt.Screen()
-    screen.screensize(500, 500)
-    screen.tracer(0)
-    trt.speed(0)
-    trt.hideturtle()
-
     print(RU.ENTER_FIRST_COLOR)
     color_1 = get_color_choice()
     print(RU.ENTER_SECOND_COLOR)
     color_2 = get_color_choice()
 
     num_hexagons = get_num_hexagons()
-    side_len = 450 / (num_hexagons * math.sqrt(3))
+    side_len = 500 / (num_hexagons * math.sqrt(3))
     horizontal_spacing = side_len * math.sqrt(3)
     vertical_spacing = side_len * 1.5
 
+    screen = trt.Screen()
+    screen.screensize(500, 500)
+    screen.tracer(0)
+    trt.hideturtle()
+
     start_x = -250
     start_y = 250 - (math.sqrt(3) * side_len)
+    i = 0
 
     for row in range(num_hexagons):
         for col in range(num_hexagons):
-            current_color = color_1 if col % 2 == 0 else color_2
+            if (row // 2) % 2:
+                if col % 2:
+                    current_color = color_1
+                else:
+                    current_color = color_2
+            else:
+                if col % 2:
+                    current_color = color_2
+                else:
+                    current_color = color_1
+
             position_x = start_x + col * horizontal_spacing
             position_y = start_y - row * vertical_spacing
 
@@ -107,8 +117,7 @@ def main() -> None:
             draw_hexagon(position_x, position_y, side_len, current_color)
 
     screen.update()
-    screen.mainloop()
-
+    trt.done()
 
 if __name__ == '__main__':
     main()
