@@ -93,7 +93,7 @@ def main() -> None:
     vertical_spacing = side_len * 1.5
 
     start_x = -250
-    start_y = 250
+    start_y = 250 - (math.sqrt(3) * side_len)
 
     for row in range(num_hexagons):
         for col in range(num_hexagons):
